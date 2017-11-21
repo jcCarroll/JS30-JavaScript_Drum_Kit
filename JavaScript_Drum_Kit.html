@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JS Drum Kit</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -60,11 +60,10 @@
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
     <script>
-        // window is the element you are listening on this could be a div or anything else like an input or textarea
-        // .addEventListener listens for our keydown
-        // function(e) gives the event
         window.addEventListener('keydown', function(e) {
-            console.log(e);
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            if (!audio) return;
+            audio.play();
         });
     </script>
 
